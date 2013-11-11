@@ -19,3 +19,7 @@ Grupo 07 - Turno de mañana
  -> Definición de espectativas "spec/fraccion_spec.rb"
  
   - Se definen las espectativas para la creación de matrices dispersas y densas, y la realización de operaciones con las mismas
+
+ -> Creando el código
+    
+  - Se plantea la jerarquía de herencia de la clase matriz, esta se ha planteado que se creara dos clases hijas de matriz.rb matriz_dispersa.rb y matriz_densa.rb. Todos los métodos de operadores se han definido en la clase madre; en las clases hijas en lo que se ha querido hacer incapié es en el modo de almacenar cada una y por consiguiente tendrá metodos de acceso distintos, por esto de definió el método [] y []= de nuevo en la matriz dispersa.
