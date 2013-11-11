@@ -1,5 +1,4 @@
-Cristo González Rodríguez
-Juvenal Santiso Hernández
+Cristo González Rodríguez | Juvenal Santiso Hernández
 
 Grupo 07 - Turno de mañana
 
@@ -16,7 +15,7 @@ Grupo 07 - Turno de mañana
   - Se incluyen los ficheros "lib/fraccion.rb", "lib/mcd.rb", "lib/matrices.rb" (anterior clase Matriz), que contienen las implementaciones de las anteriores prácticas.
   - Se incluyen los ficheros de definición de espectativas "spec/fraccion_spec.rb" (para "fraccion.rb"), y "spec/matrices_spec.rb" (para "matrices.rb"), con las espectativas para la antigua clase Matriz.
   - Se incluye el fichero "tc_matrices.rb" vacío, para la posterior definición de pruebas unitarias.
-  
+
  -> Definición de espectativas "spec/fraccion_spec.rb"
  
   - Se definen las espectativas para la creación de matrices dispersas y densas, y la realización de operaciones con las mismas
