@@ -1,4 +1,4 @@
-require "lib/fraccion.rb"
+require 'matrices/fraccion.rb'
 
 describe Fraccion do
   
