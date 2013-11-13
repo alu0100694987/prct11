@@ -7,3 +7,8 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new
 
 task :default => :spec
+
+desc "Test Unitarios"
+task :test do
+  sh "ruby -I . test/tc_matrices.rb" 
+end

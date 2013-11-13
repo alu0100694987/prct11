@@ -1,9 +1,9 @@
 # Pruebas unitarias asociadas a la creacion de matrices
 
-require 'ordenacion.rb'
+require 'matrices.rb'
 require 'test/unit'
 
-class Test_Fraccion < Test::Unit::TestCase
+class Test_Matrices < Test::Unit::TestCase
 
   def setup
     @m1=Matriz.vector(2,2,[0,1,1,0])
@@ -19,7 +19,7 @@ class Test_Fraccion < Test::Unit::TestCase
     assert_equal(Matriz.vector(2,2,[1,1,1,1]).to_s,@m2.to_s)
   end
   #Comprobacion de las operaciones 
-  def test_simple
+  def test_op
     assert_equal(Matriz.vector(2,2,[1,2,2,1]).to_s,(@m1+@m2).to_s)
     assert_equal(Matriz.vector(2,2,[1,0,0,1]).to_s,(@m2-@m1).to_s)
     assert_equal(Matriz.vector(2,2,[1,1,1,1]).to_s,(@m1*@m2).to_s)
@@ -27,6 +27,6 @@ class Test_Fraccion < Test::Unit::TestCase
   
   #test de fallo 
   def test_failure
-    assert_equal(Matriz.vector(2,2,[1,2,2,1]).to_s,(@m1+@m2).to_s)
+    assert_equal(Matriz.vector(2,2,[1,1,1,1]).to_s,(@m1+@m2).to_s)
   end
 end
