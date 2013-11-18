@@ -5,7 +5,8 @@ class Matriz_densa < Matriz
   
   def initialize(rows, cols, ele)
     super(rows, cols)
-    @mat=Array.new(ele)  
+    @mat=Array.new(ele)
+    @mat.map! {|e|; if e == e.elemento_nulo; e = 0; else e; end}
   end
   
   def pos(x,y)

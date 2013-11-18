@@ -10,8 +10,9 @@ describe Matriz do
     @m3 = Matriz.vector(3,2,[2,3,0,1,0,3]) # Densa
     @m4 = Matriz.vector(2,4,[0,1,0,0,7,0,2,0]) # Dispersa
     @m5 = Matriz.vector(4,4,[1,1,5,1,2,1,6,1,1,5,1,3,1,2,1,1]) # Densa
-    #@m6 = Matriz.vector(2,2,[Fraccion.new(1,2),Fraccion.new(1,5),Fraccion.new(1,4),Fraccion.new(1,3)])
-    #@m7 = Matriz.vector(2,1,[Fraccion.new(1,2),Fraccion.new(1,2)])
+    @m6 = Matriz.vector(2,2,[Fraccion.new(1),Fraccion.new(1,5),Fraccion.new(0),Fraccion.new(1,3)]) # Densa
+    @m7 = Matriz.vector(1,3,[Fraccion.new(0),Fraccion.new(0),Fraccion.new(4)]) # Dispersa
+    @m8 = Matriz.vector(1,2,[Fraccion.new(1,2),Fraccion.new(3,2)]) # Densa
   end
   
   describe "# Asignacion correcta del tipo de matriz: " do
@@ -19,9 +20,13 @@ describe Matriz do
       @m1.class.should eq(Matriz_dispersa)
       @m2.class.should eq(Matriz_dispersa)
     end
-    it "Identtificacion de Matriz.vector como Matriz_dispersa o Matriz.vector en funcion del numero de ceros" do
+    it "Identificacion de Matriz.vector como Matriz_dispersa o Matriz.vector en funcion del numero de ceros" do
       @m3.class.should eq(Matriz_densa)
       @m4.class.should eq(Matriz_dispersa)
+    end
+    it "Identificacion de matrices de fracciones como Matriz_dispersa y Matriz_nula" do
+      @m6.class.should eq(Matriz_densa)
+      @m7.class.should eq(Matriz_dispersa)
     end
   end  
   
@@ -42,6 +47,10 @@ describe Matriz do
       @m1.cols.should eq(1)
       @m4.cols.should eq(4)
     end
+    it "Almacenamiento correcto del numero de filas y columnas en matrices de fracciones" do
+      @m7.rows.should eq(1)
+      @m7.cols.should eq(3)
+    end
   end
   
   describe "# Correcta conversion a cadena de caracteres: " do
@@ -52,6 +61,10 @@ describe Matriz do
     it "Funcionamiento correcto del metodo to_s en matrices dispersas" do
       @m1.to_s.should eq('[[0]]')
       @m4.to_s.should eq('[[0,1,0,0],[7,0,2,0]]')
+    end
+    it "Funcionamiento correcto del metodo to_s en matrices densas y dispersas de fracciones" do
+      @m6.to_s.should eq('[[1/1,1/5],[0,1/3]]')
+      @m7.to_s.should eq('[[0,0,4/1]]')
     end
   end
   
@@ -68,12 +81,15 @@ describe Matriz do
       @m4[1,0].should eq(7)
       @m5[1,2].should eq(6)
     end
+    it "Insercion y obtencion correcta de elementos en matrices de fracciones" do
+      @m7[0,2]= Fraccion.new(1,2)
+      @m7[0,2].to_s.should eq('1/2')
+    end
   end
   
   describe "# Operaciones aritmeticas: " do
     it "Suma de matrices" do
       (@m2 + @m3).to_s.should eq('[[3,4],[1,2],[6,4]]')
-      #(@m6 + @m6).to_s.should eq('[[1/1,2/5],[1/2,2/3]]')
     end
     it "Resta de matrices" do
       (@m3 - @m3).to_s.should eq('[[0,0],[0,0],[0,0]]')
@@ -83,12 +99,15 @@ describe Matriz do
     end
     it "Multiplicacion de matrices" do
       (@m3 * @m4).to_s.should eq('[[21,2,6,0],[7,0,2,0],[21,5,6,0]]')
-      #(@m6 * @m7).to_s.should eq('[[7/20],[7/24]]')
     end
     it "Comprobacion del tipo de clase del resultado de las operaciones" do
       (@m2 + @m3).class.should eq(Matriz_densa)
       (@m2 - @m2).class.should eq(Matriz_dispersa)
       (@m3 * @m4).class.should eq(Matriz_densa)
+    end
+    it "Operaciones con matrices que contienen alguna fraccion" do
+      (@m6 + @m6).to_s.should eq('[[2/1,2/5],[0,2/3]]')
+      (@m8 * @m6).to_s.should eq('[[1/2,3/5]]')
     end
   end
   
@@ -96,6 +115,10 @@ describe Matriz do
     it "Igualdad de matrices" do
       (@m5 == Matriz.vector(4,4,[1,1,5,1,2,1,6,1,1,5,1,3,1,2,1,1])).should be_true
       (@m1 == Matriz.nula(5,2)).should be_false
+    end
+    it "Igualdad de matrices de fracciones" do
+      (@m6 == Matriz.vector(2,2,[Fraccion.new(1),Fraccion.new(1,5),Fraccion.new(0),Fraccion.new(1,3)])).should be_true
+      (@m6 == Matriz.vector(2,2,[1,Fraccion.new(1,5),0,Fraccion.new(1,3)])).should be_true
     end
   end
   

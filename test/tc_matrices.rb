@@ -1,6 +1,6 @@
 # Pruebas unitarias asociadas a la creacion de matrices
 
-require 'matrices.rb'
+require 'lib/matrices.rb'
 require 'test/unit'
 
 class Test_Matrices < Test::Unit::TestCase

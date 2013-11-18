@@ -9,7 +9,7 @@ class Matriz
        
   def Matriz.vector(rows, cols, ele)
     raise TypeError, 'No se han introducido suficientes valores' unless (ele.length==rows*cols) 
-      if (((ele.count(0)*100)/(rows*cols)) >= 60) # Matriz dispersa
+      if (((ele.count{|e| e == e.elemento_nulo}*100)/(rows*cols)) >= 60) # Matriz dispersa
         Matriz_dispersa.new(rows,cols,ele)
       else # Matriz densa
         Matriz_densa.new(rows,cols,ele)

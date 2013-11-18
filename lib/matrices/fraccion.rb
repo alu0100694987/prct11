@@ -123,8 +123,16 @@ class Fraccion
   # Operador <=>
   def <=>(other)
     
-    raise TypeError, 'Objeto no valido' unless other.is_a? Fraccion
-        self.to_float <=> other.to_float
+    if other.respond_to? :to_float
+      self.to_float <=> other.to_float
+    else
+      self.to_float <=> other
+    end
+  end
+  
+  # Elemento_nulo
+  def elemento_nulo
+    Fraccion.new(0)
   end
   
   # Coerce
