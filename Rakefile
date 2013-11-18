@@ -10,5 +10,5 @@ task :default => :spec
 
 desc "Test Unitarios"
 task :test do
-  sh "ruby -I . test/tc_matrices.rb" 
+  sh "ruby -I ./lib test/tc_matrices.rb" 
 end

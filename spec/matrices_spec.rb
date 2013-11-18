@@ -122,4 +122,19 @@ describe Matriz do
     end
   end
   
+  describe "# Calculo del minimo y el maximo de los elementos de una matriz" do
+    it "Obtencion del minimo de una matriz" do
+      @m4.min.should eq(Fraccion.new(0))
+      @m5.min.should eq(1)
+      @m6.min.should eq(0)
+      @m8.min.should eq(Fraccion.new(1,2))
+    end
+    it "Obtencion del maximo de una matriz" do
+      @m4.max.should eq(7)
+      @m5.max.should eq(6)
+      @m6.max.should eq(Fraccion.new(1,3))
+      @m7.max.should eq(Fraccion.new(1,2))
+    end
+  end
+
 end

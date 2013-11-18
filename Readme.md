@@ -32,5 +32,7 @@ Grupo 07 - Turno de mañana
 
   - Se definen las espectativas para trabajar con matrices densas y disperas, y se modifica levemente la implementación para su correcto funcionamiento.
 
+ -> Definición de espectativas de utilización de métodos "max" y "min"
 
+  - Se definen las espectativas para el cálculo de los valores máximos y mínimos de una matriz, con las funciones "max" y "min" respectivamente.
  
