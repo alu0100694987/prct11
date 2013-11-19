@@ -63,24 +63,4 @@ class Matriz_dispersa < Matriz
     true
   end
   
-    def max
-    aux=0
-    for i in 0...@val.length
-        if (@val[i] > aux)
-          aux=@val[i]
-        end
-     end
-    aux
-  end
-  
-  def min #no contempla los 0
-    aux=99999999
-    for i in 0...@val.length
-        if (@val[i] < aux)
-          aux=@val[i]
-        end
-     end
-    aux
-  end
-  
 end

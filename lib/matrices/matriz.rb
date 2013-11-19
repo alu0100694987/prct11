@@ -85,6 +85,30 @@ class Matriz
     end
     Matriz.vector(@rows,other.cols,result)
   end
+
+  def max
+    aux=0
+    for i in 0...@rows
+      for j in 0...@cols
+        if (self[i,j] > aux)
+          aux=self[i,j]
+        end
+      end
+    end
+    aux
+  end
+  
+  def min
+    aux=99999999
+    for i in 0...@rows
+      for j in 0...@cols
+        if (self[i,j] < aux)
+          aux=self[i,j]
+        end
+      end
+    end
+    aux
+  end
   
   def coerce(other)
     [self,other]
