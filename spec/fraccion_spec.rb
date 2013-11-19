@@ -38,8 +38,8 @@ describe Fraccion do
       @frac2.to_s().should == "2/5"
     end
     it "Mostrar fraccion en formato flotante" do
-      @frac1.to_float().to_s().should eq("0.75")
-      @frac2.to_float().to_s().should eq("0.4")
+      @frac1.to_f().to_s().should eq("0.75")
+      @frac2.to_f().to_s().should eq("0.4")
     end
   end
   

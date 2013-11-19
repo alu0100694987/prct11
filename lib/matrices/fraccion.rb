@@ -31,7 +31,7 @@ class Fraccion
   end
   
   # Conversion a flotante
-  def to_float()
+  def to_f()
     (@n.to_f()/@d.to_f())
   end
   
@@ -112,7 +112,7 @@ class Fraccion
     
     # Se realiza la division, y al cociente se le quita la parte entera, multiplicandola por el divisor para obtener el resto
     div=self.abs/other.abs
-    resto=other.abs * (div - Fraccion.new(div.to_float.to_i))
+    resto=other.abs * (div - Fraccion.new(div.to_f.to_i))
     # Si el dividendo es negativo, el resto sera negativo
     if (@n < 0)
       return -resto
@@ -121,13 +121,9 @@ class Fraccion
   end
   
   # Operador <=>
-  def <=>(other)
-    
-    if other.respond_to? :to_float
-      self.to_float <=> other.to_float
-    else
-      self.to_float <=> other
-    end
+  def <=>(other)   
+    raise TypeError, 'Objeto no valido' unless other.respond_to? :to_f
+      self.to_f <=> other.to_f
   end
   
   # Elemento_nulo

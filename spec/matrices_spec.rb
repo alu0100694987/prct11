@@ -132,7 +132,7 @@ describe Matriz do
     it "Obtencion del maximo de una matriz" do
       @m4.max.should eq(7)
       @m5.max.should eq(6)
-      @m6.max.should eq(Fraccion.new(1,3))
+      @m6.max.should eq(1)
       @m7.max.should eq(Fraccion.new(1,2))
     end
   end

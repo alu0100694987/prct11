@@ -35,4 +35,9 @@ Grupo 07 - Turno de mañana
  -> Definición de espectativas de utilización de métodos "max" y "min"
 
   - Se definen las espectativas para el cálculo de los valores máximos y mínimos de una matriz, con las funciones "max" y "min" respectivamente.
+
+ -> Implementación métodos "max" y "min", y creación de pruebas
+
+  - Se satisfacen las espectativas para el cálculo de los elementos máximos y mínimos de una matriz, mediante la creación de los métodos "max" y "min", en la clase abstracta Matriz
+  - Se añaden al fichero "test/tc_matrices.rb", los test necesarios para comprobar el correcto funcionamiento de dichos métodos.
  

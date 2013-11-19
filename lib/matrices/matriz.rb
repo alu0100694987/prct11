@@ -87,11 +87,14 @@ class Matriz
   end
 
   def max
-    aux=0
+    aux=self[0,0]
     for i in 0...@rows
       for j in 0...@cols
-        if (self[i,j] > aux)
-          aux=self[i,j]
+        r = aux.coerce(self[i,j])
+        if (r[0] > r[1])
+          aux = r[0]
+        else
+          aux = r[1]
         end
       end
     end
@@ -99,11 +102,14 @@ class Matriz
   end
   
   def min
-    aux=99999999
+    aux=self[0,0]
     for i in 0...@rows
       for j in 0...@cols
-        if (self[i,j] < aux)
-          aux=self[i,j]
+        r = aux.coerce(self[i,j])
+        if (r[0] < r[1])
+          aux = r[0]
+        else
+          aux = r[1]
         end
       end
     end
