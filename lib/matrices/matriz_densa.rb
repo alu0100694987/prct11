@@ -35,4 +35,29 @@ class Matriz_densa < Matriz
     return true
   end
   
+   def max
+    aux=0
+    for i in 0...@rows
+      for j in 0...@cols
+        if (@mat[pos(i,j)] > aux)
+          aux=@mat[pos(i,j)]
+        end
+      end
+    end
+    aux
+  end
+  
+  def min
+    aux=99999999
+    for i in 0...@rows
+      for j in 0...@cols
+        if (@mat[pos(i,j)] < aux)
+          aux=@mat[pos(i,j)]
+        end
+      end
+    end
+    aux
+  end
+  
+  
 end

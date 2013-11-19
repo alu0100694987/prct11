@@ -11,6 +11,7 @@ class Test_Matrices < Test::Unit::TestCase
     @m3=Matriz.nula
     @m4=Matriz.vector(2,2,[0,0,0,5])
     @m5=Matriz.vector(2,2,[1,1,1,1])
+    @m6=Matriz.vector(2,2,[1,2,3,4])
   end
   
   def tear_down
@@ -50,14 +51,17 @@ class Test_Matrices < Test::Unit::TestCase
   def test_method
     #==
     assert_operator(@m2,'==',@m5)
-    
+    #max y min
+    assert_equal(5,@m4.max)
+    assert_equal(4,@m6.max)
+    assert_equal(1,@m6.min)
     #Operaciones
     assert_equal(Matriz.vector(2,2,[1,2,2,1]).to_s,(@m1+@m2).to_s)
     assert_equal(Matriz.vector(2,2,[1,0,0,1]).to_s,(@m2-@m1).to_s)
     assert_equal(Matriz.vector(2,2,[1,1,1,1]).to_s,(@m1*@m2).to_s)
     assert_equal(Matriz.vector(2,2,[2,2,2,2]).to_s,(@m2*2).to_s)
-  end
-  
+  end  
+
   #Insercion y obtencion del contenido
   def test_cont
     @m4[0,0]=1
@@ -68,7 +72,6 @@ class Test_Matrices < Test::Unit::TestCase
     #obtencion
     assert_equal(@m4[1,1],5)
     assert_equal(@m1[0,0],1)
-    
   end
   
   #test de fallo 
