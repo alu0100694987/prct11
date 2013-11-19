@@ -40,4 +40,10 @@ Grupo 07 - Turno de mañana
 
   - Se satisfacen las espectativas para el cálculo de los elementos máximos y mínimos de una matriz, mediante la creación de los métodos "max" y "min", en la clase abstracta Matriz
   - Se añaden al fichero "test/tc_matrices.rb", los test necesarios para comprobar el correcto funcionamiento de dichos métodos.
+
+ -> Creación de la gema: "pkg/matrices-0.0.1.gem"
+ 
+  - Se crea la gema con la tarea 'rake build'.
+  - Se modifica el fichero ".gitignore" para poder subir el contenido del directorio "pkg" y los ficheros acabados en ".gem" (ignorados por defecto), al repositorio.
+  - Publicación de la gema: "https://rubygems.org/gems/matrices".
  
