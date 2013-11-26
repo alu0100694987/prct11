@@ -1,6 +1,6 @@
 
 class Matriz
-  #declaracion de los getters de los atributos rows y cols
+  #Declaracion de los getters de los atributos rows y cols
   attr_reader :rows, :cols
   
   #Constructor 
@@ -18,6 +18,7 @@ class Matriz
       end
   end
   
+  #Constructor factoria que crea una matriz vacia 
   def Matriz.nula(rows=1, cols=1)
     aux=Array.new(rows*cols, 0)
     Matriz_dispersa.new(rows, cols, aux)
@@ -42,7 +43,6 @@ class Matriz
     cadena += "]"
   end
 
-  #Operaciones con matrices
   #Suma de matrices
   def +(other) 
     raise TypeError, 'Las matrices no son del mismo tamanyo' unless (@rows==other.rows && @cols==other.cols)
@@ -125,7 +125,7 @@ class Matriz
     aux
   end
   
-  #Funcion para intercambiar elementos
+  #Funcion para la conversion implicita de tipo
   def coerce(other)
     [self,other]
   end

@@ -15,7 +15,6 @@ class Matriz_densa < Matriz
     (x*@cols)+y
   end
   
-  #Acceso a la matriz
   #Leer elemento
   def [](x,y)
     @mat[pos(x,y)]

@@ -18,7 +18,6 @@ class Matriz_dispersa < Matriz
     end
   end
   
-  #Acceso a matriz dispersa
   #Lectura
   def [](x,y)
     for pos in 0...@val.length
