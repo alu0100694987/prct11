@@ -1,12 +1,14 @@
 
 class Matriz
-
+  #declaracion de los getters de los atributos rows y cols
   attr_reader :rows, :cols
-
+  
+  #Constructor 
   def initialize(rows, cols)
     @rows, @cols = rows , cols
   end
-       
+  
+  #Constructores factoria     
   def Matriz.vector(rows, cols, ele)
     raise TypeError, 'No se han introducido suficientes valores' unless (ele.length==rows*cols) 
       if (((ele.count{|e| e == e.elemento_nulo}*100)/(rows*cols)) >= 60) # Matriz dispersa
@@ -20,7 +22,8 @@ class Matriz
     aux=Array.new(rows*cols, 0)
     Matriz_dispersa.new(rows, cols, aux)
   end
-       
+  
+  #Funcion to_s para convertir a string el objeto y se pueda mostrar por pantalla     
   def to_s  
     cadena = "["
     for i in (0..(@rows-1))
@@ -39,6 +42,8 @@ class Matriz
     cadena += "]"
   end
 
+  #Operaciones con matrices
+  #Suma de matrices
   def +(other) 
     raise TypeError, 'Las matrices no son del mismo tamanyo' unless (@rows==other.rows && @cols==other.cols)
       result=Array.new
@@ -50,6 +55,7 @@ class Matriz
       Matriz.vector(@rows, @cols, result)
   end
   
+  #Resta de matrices
   def -(other) 
     raise TypeError, 'Las matrices no son del mismo tamanyo' unless (@rows==other.rows && @cols==other.cols)
       result=Array.new
@@ -61,6 +67,7 @@ class Matriz
       Matriz.vector(@rows, @cols, result)
   end
   
+  #Multiplicacion de matrices
   def *(other)
     if(other.is_a? Numeric)
       result=Array.new
@@ -86,6 +93,7 @@ class Matriz
     Matriz.vector(@rows,other.cols,result)
   end
 
+  #Define el elemento maximo de una matriz
   def max
     aux=self[0,0]
     for i in 0...@rows
@@ -100,7 +108,8 @@ class Matriz
     end
     aux
   end
-  
+
+  #Define el elemento minimo de una matriz  
   def min
     aux=self[0,0]
     for i in 0...@rows
@@ -116,6 +125,7 @@ class Matriz
     aux
   end
   
+  #Funcion para intercambiar elementos
   def coerce(other)
     [self,other]
   end

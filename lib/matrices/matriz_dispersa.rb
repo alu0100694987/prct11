@@ -1,10 +1,10 @@
 
 class Matriz_dispersa < Matriz
-
+  #Getters
   attr_reader :rows, :cols
   
-  def initialize(rows, cols, ele)
-    
+  #Constructor
+  def initialize(rows, cols, ele)  
     super(rows, cols)
     
     @val, @f, @c = Array.new, Array.new, Array.new
@@ -18,6 +18,8 @@ class Matriz_dispersa < Matriz
     end
   end
   
+  #Acceso a matriz dispersa
+  #Lectura
   def [](x,y)
     for pos in 0...@val.length
       if (@f[pos] == x && @c[pos] == y)
@@ -26,7 +28,8 @@ class Matriz_dispersa < Matriz
     end
     0
   end
- 
+  
+  #Escritura
   def []=(x,y,value)
     for pos in 0...@val.length
       if (@f[pos] == x && @c[pos] == y)
@@ -47,10 +50,12 @@ class Matriz_dispersa < Matriz
     end
   end
  
+  #Longitud de nuestro vector de elementos
   def length
     @val.length
   end
 
+  #Operador para igualar matrices dispersas
   def ==(other)
     if (@val.length != other.length || @rows != other.rows || @cols != other.cols)
       return false
