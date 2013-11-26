@@ -42,10 +42,10 @@ class Matriz
   def +(other) 
     raise TypeError, 'Las matrices no son del mismo tamanyo' unless (@rows==other.rows && @cols==other.cols)
       result=Array.new
-      for i in 0...@rows
-        for j in 0...@cols
+      @rows.times do |i|
+        @cols.times do |j|
           result << (self[i,j] + other[i,j])
-        end 
+        end
       end
       Matriz.vector(@rows, @cols, result)
   end
@@ -53,10 +53,10 @@ class Matriz
   def -(other) 
     raise TypeError, 'Las matrices no son del mismo tamanyo' unless (@rows==other.rows && @cols==other.cols)
       result=Array.new
-      for i in 0...@rows
-        for j in 0...@cols
+      @rows.times do |i|
+        @cols.times do |j|
           result << (self[i,j] - other[i,j])
-        end 
+        end
       end
       Matriz.vector(@rows, @cols, result)
   end
@@ -64,8 +64,8 @@ class Matriz
   def *(other)
     if(other.is_a? Numeric)
       result=Array.new
-      for i in 0...@rows
-        for j in 0...@cols
+      @rows.times do |i|
+        @cols.times do |j|
           result << (self[i,j]*other)
         end
       end
@@ -74,10 +74,10 @@ class Matriz
     elsif(other.is_a? Matriz)
       raise TypeError, 'Las matrices dadas no se pueden multiplicar entre si' unless (@cols == other.rows)
       result=Array.new
-      for i in 0...@rows
-        for j in 0...other.cols
+      @rows.times do |i|
+        other.cols.times do |j|
           result << 0
-          for k in 0...@cols
+          @cols.times do |k|
             result[(result.length)-1]= (result.last + (self[i,k] * other[k,j]))
           end
         end
